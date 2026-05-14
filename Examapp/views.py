@@ -347,10 +347,22 @@ def StartTest(request):
 # SUBMIT TEST
 def SubmitTest(request):
 
+    # CHECK USER LOGIN
+    if not request.session.get('username'):
+
+        return redirect('/login/')
+
     if request.method == "POST":
 
+        # GET USERNAME
+        username = request.session.get(
+            'username'
+        )
+
+        # GET SUBJECT
         subject = request.POST.get('subject')
 
+        # GET QUESTIONS
         questions = Question.objects.filter(
             subject=subject
         )
@@ -361,6 +373,7 @@ def SubmitTest(request):
 
         wrong_answers = 0
 
+        # CHECK ANSWERS
         for q in questions:
 
             selected_answer = request.POST.get(
@@ -375,14 +388,12 @@ def SubmitTest(request):
 
                 wrong_answers += 1
 
+        # CALCULATE SCORE
         score = int(
             (correct_answers / total_questions) * 100
         )
 
-        username = request.session.get(
-            'username'
-        )
-
+        # SAVE RESULT
         Result.objects.create(
 
             username=username,
@@ -398,6 +409,7 @@ def SubmitTest(request):
             score=score
         )
 
+        # SHOW RESULT PAGE
         return render(request,
                       "result.html",
                       {
@@ -408,3 +420,5 @@ def SubmitTest(request):
                           'wrong_answers': wrong_answers,
                           'score': score
                       })
+
+    return redirect('/subject/')
