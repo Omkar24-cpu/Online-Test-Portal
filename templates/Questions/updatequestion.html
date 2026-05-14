@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="main-title text-center mb-4">
+
+    Update Question
+
+</h1>
+
+<form method="POST"
+      action="/updatequestion/{{ question.qno }}/">
+
+    {% csrf_token %}
+
+    <input type="text"
+           name="qtext"
+           value="{{ question.qtext }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="op1"
+           value="{{ question.op1 }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="op2"
+           value="{{ question.op2 }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="op3"
+           value="{{ question.op3 }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="op4"
+           value="{{ question.op4 }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="corr_answer"
+           value="{{ question.corr_answer }}"
+           class="form-control mb-3 p-3">
+
+    <input type="text"
+           name="subject"
+           value="{{ question.subject }}"
+           class="form-control mb-4 p-3">
+
+    <button type="submit"
+            class="btn btn-success btn-custom w-100">
+
+        Update Question
+
+    </button>
+
+</form>
+
+{% endblock %}

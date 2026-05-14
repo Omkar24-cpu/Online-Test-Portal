@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="main-title text-center mb-4">
+
+    All Users
+
+</h1>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover align-middle">
+
+        <tr class="table-dark text-center">
+
+            <th>ID</th>
+
+            <th>Username</th>
+
+            <th>Password</th>
+
+            <th>Mobile</th>
+
+            <th>Update</th>
+
+            <th>Delete</th>
+
+        </tr>
+
+        {% for u in users %}
+
+        <tr>
+
+            <td>{{ u.id }}</td>
+
+            <td>{{ u.username }}</td>
+
+            <td>{{ u.password }}</td>
+
+            <td>{{ u.mobile_no }}</td>
+
+            <td class="text-center">
+
+                <a href="/showuserforupdate/{{ u.id }}/"
+                   class="btn btn-warning">
+
+                   Update
+
+                </a>
+
+            </td>
+
+            <td class="text-center">
+
+                <a href="/showuserfordelete/{{ u.id }}/"
+                   class="btn btn-danger">
+
+                   Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

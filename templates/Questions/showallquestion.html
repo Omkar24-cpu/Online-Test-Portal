@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="main-title text-center mb-4">
+
+    All Questions
+
+</h1>
+
+<div class="table-responsive">
+
+    <table class="table table-bordered table-hover align-middle">
+
+        <tr class="table-dark text-center">
+
+            <th>ID</th>
+
+            <th>Question</th>
+
+            <th>Subject</th>
+
+            <th>Update</th>
+
+            <th>Delete</th>
+
+        </tr>
+
+        {% for q in questions %}
+
+        <tr>
+
+            <td>{{ q.qno }}</td>
+
+            <td>{{ q.qtext }}</td>
+
+            <td>{{ q.subject }}</td>
+
+            <td class="text-center">
+
+                <a href="/showquestionforupdate/{{ q.qno }}/"
+                   class="btn btn-warning">
+
+                   Update
+
+                </a>
+
+            </td>
+
+            <td class="text-center">
+
+                <a href="/showquestionfordelete/{{ q.qno }}/"
+                   class="btn btn-danger">
+
+                   Delete
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+{% endblock %}

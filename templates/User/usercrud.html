@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="text-center">
+
+    <h1 class="main-title mb-4">
+
+        User Management
+
+    </h1>
+
+    <p class="text-muted mb-5">
+
+        Create, Update and Manage Users
+
+    </p>
+
+</div>
+
+<div class="row g-4">
+
+    <div class="col-md-4">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h3 class="mb-3">
+
+                Create User
+
+            </h3>
+
+            <p>
+
+                Add new users to the portal.
+
+            </p>
+
+            <a href="/createuser/"
+               class="btn btn-primary btn-custom">
+
+               Create User
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h3 class="mb-3">
+
+                Show Users
+
+            </h3>
+
+            <p>
+
+                View and manage all users.
+
+            </p>
+
+            <a href="/showalluser/"
+               class="btn btn-success btn-custom">
+
+               Show All Users
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow border-0 p-4 text-center">
+
+            <h3 class="mb-3">
+
+                Login
+
+            </h3>
+
+            <p>
+
+                Login to access the portal.
+
+            </p>
+
+            <a href="/login/"
+               class="btn btn-dark btn-custom">
+
+               Login
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
